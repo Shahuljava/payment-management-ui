@@ -1,0 +1,53 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<div class="list-container">
+    <div class="filters">
+        <h2>ADCO Payment Management System</h2>
+        <input class="search-input" [(ngModel)]="search" placeholder="Search by name" (input)="onSearch()" />
+        <select [(ngModel)]="status" (change)="onStatusChange()">
+            <option value="">All</option>
+            <option value="pending">Pending</option>
+            <option value="overdue">Over Due</option>
+            <option value="due_now">Due Now</option>
+            <option value="completed">Completed</option>
+        </select>
+        <button (click)="navigateToAddPayment()" class="add-payment-button">Add Payment</button>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Status</th>
+                <th>Total Due</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let payment of payments">
+                <td>{{ payment.payee_first_name }} {{ payment.payee_last_name }}</td>
+                <td>{{ payment.payee_payment_status }}</td>
+                <td>{{ payment.total_due | currency:payment.currency }}</td>
+                <td>
+                    <div class="actions">
+                        <button (click)="editPayment(payment._id)" title="Edit">
+                            <i class="fas fa-edit"></i>
+                        </button>
+                        <button (click)="deletePayment(payment._id)" title="Delete">
+                            <i class="fas fa-trash-alt"></i>
+                        </button>
+
+                        <input #fileInput type="file" (change)="uploadEvidence(payment._id, $event)" />
+
+                        <button *ngIf="payment.evidence_file" (click)="downloadEvidence(payment._id)"
+                            title="Download Evidence">
+                            <i class="fas fa-download"></i>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="pagination">
+        <button [disabled]="page <= 1" (click)="previousPage()">Previous</button>
+        <button [disabled]="page >= totalPages" (click)="nextPage()">Next</button>
+    </div>
+</div>

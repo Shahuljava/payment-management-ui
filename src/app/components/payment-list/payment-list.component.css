@@ -1,0 +1,258 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+  }
+  
+  .list-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto 2rem auto;
+    padding: 2rem;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  h2 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 2.5rem;
+    color: #333;
+    text-align: center;
+    margin: 2rem 0;
+    letter-spacing: 1.5px;
+    background: linear-gradient(to right, #007bff, #787978);
+    background-size: 200% auto;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: textColorShift 5s linear infinite;
+  }
+  
+  @keyframes textColorShift {
+    0% {
+      background-position: 0% 0%;
+    }
+    100% {
+      background-position: -200% 0%;
+    }
+  }
+  
+  .filters {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+  
+  .search-input {
+    width: 300px;
+    padding: 1rem;
+    font-size: 1.2rem;
+    border: 2px solid #007bff;
+    border-radius: 25px;
+    background-color: #f0f8ff;
+    color: #333;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .search-input:focus {
+    border-color: #0056b3;
+    background-color: #e6f2ff;
+    outline: none;
+  }
+  
+  .search-input::placeholder {
+    color: #999;
+    font-style: italic;
+  }
+  
+  .filters select {
+    padding: 1rem;
+    font-size: 1.2rem;
+    border: 2px solid #007bff;
+    border-radius: 25px;
+    background-color: #f0f8ff;
+    color: #333;
+    transition: all 0.3s ease-in-out;
+    appearance: none;
+    width: 200px;
+  }
+  
+  .filters select:focus {
+    border-color: #0056b3;
+    background-color: #e6f2ff;
+    outline: none;
+  }
+  
+  .add-payment-button {
+    padding: 1rem;
+    font-size: 1.2rem;
+    border: 2px solid #007bff;
+    border-radius: 25px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .add-payment-button:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  thead {
+    background-color: #007bff;
+    color: #fff;
+  }
+  
+  th, td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  th {
+    font-size: 1.2rem;
+  }
+  
+  tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  tbody tr:hover {
+    background-color: #eef;
+  }
+  
+  .actions {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .actions button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    color: #007bff;
+    transition: color 0.3s;
+  }
+  
+  .actions button:hover {
+    color: #0056b3;
+  }
+  
+  .pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin: 2rem 0;
+  }
+  
+  .pagination button {
+    padding: 1rem;
+    font-size: 1rem;
+    color: #007bff;
+    background: #fff;
+    border: 1px solid #007bff;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  
+  .pagination button:hover {
+    background-color: #007bff;
+    color: #fff;
+  }
+  
+  .pagination button:disabled {
+    color: #ccc;
+    border-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  @media (max-width: 768px) {
+    .filters {
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+  
+    table {
+      width: 100%;
+    }
+  
+    th, td {
+      padding: 0.5rem;
+    }
+  
+    .actions {
+      flex-direction: row;
+      justify-content: space-around;
+    }
+  }
+  
+  @media (max-width: 600px) {
+    .filters {
+      flex-direction: column;
+      align-items: stretch;
+    }
+  
+    .search-input,
+    .filters select,
+    .add-payment-button {
+      width: 100%;
+      text-align: center;
+    }
+  }
+
+  .filters {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .filters h2 {
+    font-size: 1.2rem;
+    margin: 0;
+  }
+  
+  .search-input {
+    width: 300px;
+    padding: 5px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .filters select {
+    width: 150px;
+    padding: 5px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .add-payment-button {
+    padding: 5px 10px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+  }

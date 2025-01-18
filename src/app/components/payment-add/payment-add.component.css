@@ -1,0 +1,106 @@
+body {
+    background-color: #f0f2f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  .payment-form-container {
+    max-width: 600px;
+    width: 100%;
+    margin: 50px auto;
+    padding: 20px;
+    background: whitesmoke;
+    border-radius: 8px;
+    font-size: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.5s ease-in-out;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .payment-form-container h1 {
+    text-align: center;
+    font-size: 2rem;
+    color: #010101;
+    margin-bottom: 20px;
+  }
+  
+  mat-form-field {
+    max-width: 400px;
+    width: 100%;
+    margin-bottom: 15px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  mat-form-field .mat-form-field-label {
+    color: #666;
+    font-weight: 500;
+  }
+  
+  .mat-form-field-appearance-outline .mat-form-field-outline {
+    border-color: #ddd;
+  }
+  
+  .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline {
+    border-color: #007BFF;
+  }
+  
+  button[mat-raised-button] {
+    display: block;
+    max-width: 200px;
+    width: 100%;
+    padding: 10px;
+    font-size: 1.1rem;
+    color: white;
+    background-color: #007BFF;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 0 auto;
+  }
+  
+  button[mat-raised-button]:hover {
+    background-color: #0056b3;
+  }
+  
+  button[mat-raised-button][disabled] {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  mat-error {
+    color: #d32f2f;
+    font-size: 0.9rem;
+    margin-top: 5px;
+  }
+  
+  @media (max-width: 768px) {
+    .payment-form-container {
+      padding: 15px;
+    }
+  
+    mat-form-field {
+      margin-bottom: 10px;
+    }
+  
+    button[mat-raised-button] {
+      font-size: 1rem;
+      padding: 8px;
+    }
+  }

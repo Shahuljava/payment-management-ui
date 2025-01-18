@@ -1,0 +1,118 @@
+<div class="payment-form-container">
+    <h1>{{ isEditMode ? 'Edit Payment' : 'Add Payment' }}</h1>
+    <form [formGroup]="addPaymentForm" (ngSubmit)="submitPayment()">
+        <mat-form-field appearance="outline" class="full-width">
+            <mat-label>First Name</mat-label>
+            <input matInput formControlName="payee_first_name" />
+            <mat-error
+                *ngIf="addPaymentForm.get('payee_first_name')?.invalid && addPaymentForm.get('payee_first_name')?.touched">
+                First Name is required.
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Last Name</mat-label>
+            <input matInput formControlName="payee_last_name" />
+            <mat-error
+                *ngIf="addPaymentForm.get('payee_last_name')?.invalid && addPaymentForm.get('payee_last_name')?.touched">
+                Last Name is required.
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Due Amount</mat-label>
+            <input matInput type="number" formControlName="due_amount" />
+            <mat-error *ngIf="addPaymentForm.get('due_amount')?.invalid && addPaymentForm.get('due_amount')?.touched">
+                Due Amount must be greater than 0.
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Due Date</mat-label>
+            <input matInput [matDatepicker]="picker" formControlName="payee_due_date" />
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+            <mat-error
+                *ngIf="addPaymentForm.get('payee_due_date')?.invalid && addPaymentForm.get('payee_due_date')?.touched">
+                Due Date is required.
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Address Line 1</mat-label>
+            <input matInput formControlName="payee_address_line_1" />
+            <mat-error
+                *ngIf="addPaymentForm.get('payee_address_line_1')?.invalid && addPaymentForm.get('payee_address_line_1')?.touched">
+                Address is required.
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Country</mat-label>
+            <mat-select formControlName="payee_country" (selectionChange)="onCountryChange()">
+                <mat-option *ngFor="let country of countries" [value]="country">{{ country }}</mat-option>
+            </mat-select>
+            <mat-error
+                *ngIf="addPaymentForm.get('payee_country')?.invalid && addPaymentForm.get('payee_country')?.touched">
+                Country is required.
+            </mat-error>
+        </mat-form-field>
+
+
+        <mat-form-field appearance="outline" class="full-width">
+            <mat-label>City</mat-label>
+            <mat-select formControlName="payee_city">
+                <mat-option *ngFor="let city of cities" [value]="city">{{ city }}</mat-option>
+            </mat-select>
+            <mat-error *ngIf="addPaymentForm.get('payee_city')?.invalid && addPaymentForm.get('payee_city')?.touched">
+                City is required.
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Postal Code</mat-label>
+            <input matInput formControlName="payee_postal_code" />
+            <mat-error
+                *ngIf="addPaymentForm.get('payee_postal_code')?.invalid && addPaymentForm.get('payee_postal_code')?.touched">
+                Postal Code is required.
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Phone Number</mat-label>
+            <input matInput formControlName="payee_phone_number" />
+            <mat-error
+                *ngIf="addPaymentForm.get('payee_phone_number')?.invalid && addPaymentForm.get('payee_phone_number')?.touched">
+                Phone Number is required.
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Email</mat-label>
+            <input matInput formControlName="payee_email" />
+            <mat-error *ngIf="addPaymentForm.get('payee_email')?.invalid && addPaymentForm.get('payee_email')?.touched">
+                Please enter a valid email.
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Currency</mat-label>
+            <mat-select formControlName="currency">
+                <mat-option *ngFor="let currency of currencies" [value]="currency">{{ currency }}</mat-option>
+            </mat-select>
+            <mat-error *ngIf="addPaymentForm.get('currency')?.invalid && addPaymentForm.get('currency')?.touched">
+                Currency is required.
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Payment Status</mat-label>
+            <mat-select formControlName="payee_payment_status">
+                <mat-option *ngFor="let status of statusOptions" [value]="status">{{ status }}</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <button mat-raised-button color="primary" type="submit">
+            {{ isEditMode ? 'Update Payment' : 'Add Payment' }}
+        </button>
+    </form>
+</div>
