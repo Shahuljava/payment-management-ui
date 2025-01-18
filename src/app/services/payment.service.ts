@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class PaymentService {
-  private baseUrl = 'http://127.0.0.1:8000/payments';
+  private baseUrl = 'https://adcorepaymentsystem-192f3b5c8700.herokuapp.com/payments/';
 
   constructor(private http: HttpClient) {}
 
