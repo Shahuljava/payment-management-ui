@@ -3,8 +3,9 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
+    "start": "node server.js",
+    "build": "ng build --configuration production",
+    "postinstall": "npm run build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
@@ -12,8 +13,10 @@
   "dependencies": {
     "@angular/animations": "^19.1.0",
     "@angular/cdk": "^19.1.0",
+    "@angular/cli": "^19.1.2",
     "@angular/common": "^19.1.0",
     "@angular/compiler": "^19.1.0",
+    "@angular/compiler-cli": "^19.1.0",
     "@angular/core": "^19.1.0",
     "@angular/forms": "^19.1.0",
     "@angular/material": "^19.1.0",
@@ -21,8 +24,10 @@
     "@angular/platform-browser-dynamic": "^19.1.0",
     "@angular/router": "^19.1.0",
     "@fortawesome/fontawesome-free": "^6.7.2",
+    "express": "^4.21.2",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
+    "typescript": "~5.7.2",
     "zone.js": "~0.15.0"
   },
   "devDependencies": {
@@ -35,7 +40,6 @@
     "karma-chrome-launcher": "~3.2.0",
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
-    "karma-jasmine-html-reporter": "~2.1.0",
-    "typescript": "~5.7.2"
+    "karma-jasmine-html-reporter": "~2.1.0"
   }
 }
